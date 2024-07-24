@@ -1,0 +1,131 @@
+/* Review.css */
+
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Top bar styles */
+ 
+  
+  /* Review container styles */
+  .reviews-container {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .reviews-header {
+    background-color: #007BFF;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    border-top-right-radius: 8px;
+  }
+  
+  .reviews-header h2 {
+    margin: 0;
+  }
+  
+  .review-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .review-buttons .filter-button,
+  .review-buttons .sort-button {
+    background-color: white;
+    color: #007BFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .review-buttons .filter-button:hover,
+  .review-buttons .sort-button:hover {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  .current-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .current-date .fa-calendar-alt {
+    color: white;
+  }
+  
+  .reviews-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .reviews-table thead {
+    background-color: #f8f8f8;
+  }
+  
+  .reviews-table th,
+  .reviews-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .reviews-table th {
+    background-color: #007BFF;
+    border-radius: 0px;
+ 
+  }
+  
+  .reviews-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .review-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .golden-star {
+    color: #FFD700;
+  }
+  
+  .no-reviews {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .reviews-header {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .review-buttons {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+  
