@@ -31,7 +31,7 @@ const LoginPage = () => {
       navigate('/dashboard');
     } catch (error) {
       console.error('Login failed:', error.response ? error.response.data : error.message);
-      setError('Login failed. Please check your credentials and try again.');
+      setError('Login failed. Please check your credentials.');
     } finally {
       setLoading(false); // Set loading to false after the API call completes
     }
@@ -69,7 +69,7 @@ const LoginPage = () => {
               required
             />
           </div>
-          {error && <p className="error-message">{error}</p>}
+          {error && <p style={{padding:"0px", color:"red", marginBottom:"0px", marginTop:"8px"}}>{error}</p>}
           <button type="submit" className="login-button" disabled={loading}>
             {loading ? <CircularProgress size={24} color="inherit" /> : 'Log In'}
           </button>
