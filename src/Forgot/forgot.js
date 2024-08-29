@@ -23,7 +23,7 @@ const ForgotPassword = () => {
     return (
         <div className="forgot-password-container">
             <div className="forgot-password-form">
-                <h2>Forgot Password?</h2>
+                <h2>Forgot Password ?</h2>
                 <p>Enter your email to reset your password.</p>
                 {message && <p className="success-message">{message}</p>}
                 {error && <p className="error-message">{error}</p>}
