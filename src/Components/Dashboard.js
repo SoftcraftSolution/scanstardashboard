@@ -71,8 +71,8 @@ const Dashboard = () => {
   }, [selectedDate]);
 
   return (
-    <div className="app">
-      <TopBar />
+    <div className="app" style={{maxWidth:"100%", padding:"0px"}}>
+      <TopBar index={0}/>
       <div className="dashboard">
         <h1>Welcome to the Dashboard, {businessName}</h1>
         <div className="date-picker-container">

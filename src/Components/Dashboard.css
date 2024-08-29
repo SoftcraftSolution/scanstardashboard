@@ -2,7 +2,7 @@
 .dashboard {
   padding: 20px;
   font-family: Arial, sans-serif;
-  width: 1150px;
+  width:100%;
 }
 
 .date-picker-container {
