@@ -21,7 +21,7 @@ function App() {
           <Route path="/forgot" element={<ForgotPassword />} />
           <Route path="/" element={<LoginPage />} />
           <Route path="/Review" element={<Reviews />} />
-          <Route path="/scanstarr" element={<ScanReviews />} />
+          <Route path="/scanstar" element={<ScanReviews />} />
 
           {/* Add more routes here as needed */}
         </Routes>
