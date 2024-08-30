@@ -9,6 +9,7 @@ import LoginPage from './Components/Login/login';
 import ForgotPassword from './Forgot/forgot';
 import Reviews from './Components/Review/Review';
 import ScanReviews from './scanstar/scanstarr';
+import Db from './Components/Coupon/Coupon';
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/Review" element={<Reviews />} />
           <Route path="/scanstarr" element={<ScanReviews />} />
+          <Route path="/coupon" element={<Db/>} />
 
           {/* Add more routes here as needed */}
         </Routes>
