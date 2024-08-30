@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Home from './home';
+import Home from './home/home.js';
 import ScanStarReviews from './scanstar/review.js';
 import Coupon from './Coupon/Coupon.js';
 import TopBar from './Topbar/topbar.js'; // Your CSS file for styling
