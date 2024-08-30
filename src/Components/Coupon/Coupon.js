@@ -6,7 +6,7 @@ import a2 from './assets/a2.png';
 import a3 from './assets/a3.png';
 import a4 from './assets/a4.png';
 import bin from './assets/bin.png';
-const Db = () => {
+const Coupon = () => {
   const coupons = [
     { code: 'AB90283PQ', offer: 'Flat 50% off on your next order at KFC', generatedDate: '12-04-2024', issuedDate: '12-05-2024', expiryDate: '12-05-2024', status: 'Claimed' },
     { code: 'PQ90283VQ', offer: 'Buy 1 get 1 Free on your next order at KFC', generatedDate: '04-03-2024', issuedDate: '04-04-2024', expiryDate: '04-04-2024', status: 'Expired' },
@@ -98,4 +98,4 @@ const Db = () => {
   );
 };
 
-export default Db;
+export default Coupon;
