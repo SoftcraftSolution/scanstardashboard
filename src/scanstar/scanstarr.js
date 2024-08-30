@@ -76,7 +76,7 @@ const ScanReviews = () => {
 
   return (
     <div className='app'>
-      <TopBar />
+      <TopBar index={1}/>
       <div className="reviews-container">
         <div className="reviews-header">
           <h2>Reviews for {businessName}</h2>

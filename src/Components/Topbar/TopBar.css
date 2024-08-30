@@ -1,43 +1,73 @@
+/* TopBar styling */
 .topbar {
-    background-color: #0056b3;
-    display: flex;
-    justify-content: space-between;
-    
-    padding: 10px 20px;
-    color: white;
-    width: 1200px;
-  }
-  #ggg{
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  #gggg{
-         margin-left: 50px;
-         margin-right: 50px;
-  }
-  .topbar-left{
-    margin-left: 450px;
-  }
+  background-color: #004AAC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Reduced padding for a more compact look */
+  color: white;
+  width: 100%; /* Set width to 100% */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Navigation links spacing */
+#ggg {
+  margin: 0 15px; /* Adjusted margins for uniform spacing */
+}
+
+#gggg {
+  margin: 0 25px; /* Adjusted margins for more prominent spacing */
+}
+
+/* Topbar left section */
+.topbar-left {
+ /* Align to the center of the remaining space */
+  display: flex;
+  align-items: center;
   
-  .topbar-left, .topbar-right {
-    display: flex;
-    align-items: center;
-  }
+}
+
+/* Topbar right section */
+.topbar-right {
+  display: flex;
+  align-items: center;
   
-  .topbar-link {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .topbar-link:hover {
-    text-decoration: underline;
-  }
-  
-  .profile-pic {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-left: 10px;
-  }
-  
+  margin-right: 20px; 
+  width: 50px;
+  /* Added margin for spacing */
+}
+
+/* Navigation link styles */
+.topbar-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px; /* Standardized font size */
+  padding: 5px 10px; /* Padding for better clickable area */
+  transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for navigation links */
+.topbar-link:hover {
+  text-decoration: underline;
+}
+
+/* Active and inactive state styles */
+.topbar-link.active {
+  color: white; /* Active link color */
+  font-weight: bold; /* Highlight active link */
+}
+
+.topbar-link.inactive {
+  color: grey; /* Inactive link color */
+  opacity: 0.6; /* Less visible for inactive links */
+}
+
+/* Profile picture styling */
+.profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  border: 1px solid red;
+}

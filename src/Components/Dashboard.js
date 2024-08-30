@@ -23,7 +23,7 @@ const Dashboard = () => {
   const [negativeReviewGrowthPercentage, setNegativeReviewGrowthPercentage] = useState("0.00");
   const [averageRatingToday, setAverageRatingToday] = useState("0.00");
   const [averageRatingOverall, setAverageRatingOverall] = useState("0.00");
-  const [overallTotalCountAllTime, setoverallTotalCountAllTime] = useState("0.00");
+  const [overallTotalCountAllTime, setOverallTotalCountAllTime] = useState("0.00");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,12 +46,10 @@ const Dashboard = () => {
           setNegativeReviewGrowthPercentage(data.negativeReviewGrowthPercentage || "0.00");
           setAverageRatingToday(data.averageRatingToday || "0.00");
           setAverageRatingOverall(data.averageRatingOverall || "0.00");
-          setoverallTotalCountAllTime(data.overallTotalCountAllTime || "0.00")
+          setOverallTotalCountAllTime(data.overallTotalCountAllTime || "0.00");
 
-          // Placeholder for review and analytics data processing
           setReviewData([
             { name: dateFormatted, Positive: data.positiveReviewCount, Negative: data.negativeReviewCount },
-            // Add more data as required
           ]);
 
           setAnalyticsData([
@@ -69,47 +67,50 @@ const Dashboard = () => {
 
     fetchData();
   }, [selectedDate]);
+  const handleDateChange = (event) => {
+    const date = new Date(event.target.value);
+    setSelectedDate(date);
+    console.log(date);
+  };
 
   return (
-    <div className="app">
-      <TopBar />
+    <div className="app" style={{ maxWidth: "100%", padding: "0px" }}>
+      <TopBar index={0} />
       <div className="dashboard">
-        <h1>Welcome to the Dashboard, {businessName}</h1>
-        <div className="date-picker-container">
-          <DatePicker
-            selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
-            dateFormat="yyyy-MM-dd"
-          />
+        <div id="datteePickeer">
+          <input type="date" id="birthday" name="birthday" className="date-picker-input" onChange={handleDateChange} />
         </div>
+        
         <div className="stats">
           <div className="stat-item">
-            <p>Total Reviews</p>
-            <h2>{totalReviews}</h2>
-            <p className={`stat-change ${totalReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
+            <p style={{margin:"0px 0px"}}>Total Reviews</p>
+            <div id="titleId">{totalReviews}</div>
+            <p style={{margin:"0px 0px"}}  className={`stat-change ${totalReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
               {totalReviewGrowthPercentage}% from yesterday
             </p>
           </div>
           <div className="stat-item">
-            <p>Positive Reviews</p>
-            <h2>{positiveReviewCount}</h2>
-            <p className={`stat-change ${positiveReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
+            <p style={{margin:"0px 0px"}}>Positive Reviews</p>
+            <div id="titleId">{positiveReviewCount}</div>
+            <p style={{margin:"0px 0px"}} className={`stat-change ${positiveReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
               {positiveReviewGrowthPercentage}% from yesterday
             </p>
           </div>
           <div className="stat-item">
-            <p>Negative Reviews</p>
-            <h2>{negativeReviewCount}</h2>
-            <p className={`stat-change ${negativeReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
+            <p style={{margin:"0px 0px"}}>Negative Reviews</p>
+            <div id="titleId">{negativeReviewCount}</div>
+            <p style={{margin:"0px 0px"}} className={`stat-change ${negativeReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
               {negativeReviewGrowthPercentage}% from yesterday
             </p>
           </div>
           <div className="stat-item">
-            <p>Average Rating Today</p>
-            <h2>{averageRatingToday}</h2>
-            <p className="stat-change">Overall rating: {averageRatingOverall}</p>
+            <p style={{margin:"0px 0px"}}>Average Rating Today</p>
+            <div id="titleId">{averageRatingToday}</div>
+            <p style={{margin:"0px 0px"}}  className="stat-change">Overall rating: {averageRatingOverall}</p>
           </div>
         </div>
+
+
         <div className="charts">
           <div className="chart-container">
             <h2>Reviews</h2>
@@ -190,6 +191,6 @@ const Dashboard = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Dashboard;
