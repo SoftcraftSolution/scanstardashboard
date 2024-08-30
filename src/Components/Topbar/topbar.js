@@ -2,52 +2,34 @@ import React, { useEffect, useState } from 'react';
 import { FaSignOutAlt } from 'react-icons/fa'; // Import the icons
 import './TopBar.css';
 
-function TopBar({index}) {
-  const [businessName, setBusinessName] = useState('');
-  const [activeIndex, setActiveIndex] = useState(index); // State to track the active tab
-
-  useEffect(() => {
-    const storedBusinessName = sessionStorage.getItem('businessName');
-    if (storedBusinessName) {
-      setBusinessName(storedBusinessName);
-    }
-  }, []);
-
-  // Function to handle navigation click
-  const handleNavigationClick = (index) => {
-    setActiveIndex(index);
-  };
-
+const TopBar = ({ activeIndex, onTabClick }) => {
   return (
     <div className="topbar">
       <div className="topbar-right"></div>
       <div className="topbar-left">
         <a
-          id="ggg"
-          href="/Dashboard"
-          className={`topbar-link ${activeIndex === 0 ? 'active' : 'inactive'}`} // Apply active/inactive class
-          onClick={() => handleNavigationClick(0)}
+          href="#"
+          className={`topbar-link ${activeIndex === 0 ? 'active' : 'inactive'}`}
+          onClick={() => onTabClick(0)}
         >
           Dashboard
         </a>
-
         <a
-          id="ggg"
-          href="/Review"
+          href="#"
           className={`topbar-link ${activeIndex === 1 ? 'active' : 'inactive'}`}
-          onClick={() => handleNavigationClick(2)}
+          onClick={() => onTabClick(1)}
         >
-          Google Reviews
+          Reviews
         </a>
         <a
-          id="ggg"
-          href="/scanstarr"
+          href="#"
           className={`topbar-link ${activeIndex === 2 ? 'active' : 'inactive'}`}
-          onClick={() => handleNavigationClick(3)}
+          onClick={() => onTabClick(2)}
         >
-          ScanStar Reviews
+        Coupons
         </a>
       </div>
+      <div className="topbar-right">
       <div className="topbar-right">
         <a
           id="ggg"
@@ -57,8 +39,9 @@ function TopBar({index}) {
           <FaSignOutAlt className="logout-icon" />
         </a>
       </div>
+      </div>
     </div>
   );
-}
+};
 
 export default TopBar;

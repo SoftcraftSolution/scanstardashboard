@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './scanstarr.css';
+import './review.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TopBar from '../Components/Topbar/topbar';
 
 library.add(fasStar, farStar);
 
@@ -76,7 +75,6 @@ const ScanReviews = () => {
 
   return (
     <div className='app'>
-      <TopBar index={1}/>
       <div className="reviews-container">
         <div className="reviews-header">
           <h2>Reviews for {businessName}</h2>
