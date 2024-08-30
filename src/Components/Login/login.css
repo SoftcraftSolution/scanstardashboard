@@ -1,16 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #F4F6FA;
-  }
- 
-  .login-container {
+
+ .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
+
   .logokkk{
     width: 212px;
 height: 43px;
@@ -69,7 +64,7 @@ flex-direction: column;
 
   
   input  {
-    width: 90%;
+    width: 88%;
     border: 1px solid #CED4DA;
     border-radius: 0px;
     font-size: 16px;
