@@ -63,11 +63,12 @@ const Db = () => {
               <h3>20</h3>
             </div>
           </div>
-        </div>
-        <div className="actions">
+          <div className="actions">
           <button className="verify-btn">Verify Coupon</button>
           <button className="generate-btn" onClick={handleGenerateClick}>Generate Coupon</button>
         </div>
+        </div>
+        
         <table className="coupon-table">
           <thead>
             <tr>
