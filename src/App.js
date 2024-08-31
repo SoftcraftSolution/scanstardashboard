@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TopBar from './Components/Topbar/topbar';
+
 import Dashboard from './Components/Dashboard';
 import AdminList from './adminlist/adminlist';
 import './Components/styles.css';
 import BusinessList from './Components/Buisnesslist/Buisnesslist';
 import LoginPage from './Components/Login/login';
-import ForgotPassword from './Forgot/forgot';
-import Reviews from './Components/Review/Review';
-import ScanReviews from './scanstar/scanstarr';
-import Db from './Components/Coupon/Coupon';
+import ForgotPassword from './Components/Forgot/forgot.js';
+import ScanReviews from './Components/scanstar/review.js';
+import Coupon from './Components/Coupon/Coupon';
+import Home from './Components/home.js';
+
 function App() {
   return (
     <Router>
@@ -21,11 +22,13 @@ function App() {
           <Route path="/buisnesslist" element={<BusinessList />} />
           <Route path="/forgot" element={<ForgotPassword />} />
           <Route path="/" element={<LoginPage />} />
-          <Route path="/Review" element={<Reviews />} />
-
+          {/* <Route path="/Review" element={<Reviews />} /> */}
+          
          <Route path="/scanstarr" element={<ScanReviews />} />
-          <Route path="/coupon" element={<Db/>} />
-
+          <Route path="/coupon" element={<Coupon/>} />
+          {/* /////// */}
+          <Route path="/home" element={<Home/>} />
+          
 
           {/* Add more routes here as needed */}
         </Routes>

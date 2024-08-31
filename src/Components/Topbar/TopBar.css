@@ -59,7 +59,7 @@
 }
 
 .topbar-link.inactive {
-  color: grey; /* Inactive link color */
+  color: rgba(255, 255, 255, 0.829); /* Inactive link color */
   opacity: 0.6; /* Less visible for inactive links */
 }
 

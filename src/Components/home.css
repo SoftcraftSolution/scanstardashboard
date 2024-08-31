@@ -1,9 +1,11 @@
 /* Base Styles */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 .dashboard {
   padding: 20px;
   font-family: 'Poppins', sans-serif;
   width:100%;
+  /* border: 1px solid red; */
 }
 
 
