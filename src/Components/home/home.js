@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './home.css';
 import ReviewsBarChart from './module/graph';
 import AnalyticsDonutChart from './module/circularAnalysys';
+import RecentReviews from './module/recnet-reeviews/recentReviews';
 
 
 
@@ -128,23 +129,8 @@ const Home = () => {
         <ReviewsBarChart/>
         <AnalyticsDonutChart/>
         </div>
-        <div className="reviews-group">
-          <div className="recent-reviews">
-            <h2>Recent Reviews</h2>
-            <div className="review">
-              <p>
-                <strong>Aditya Khan:</strong> Great experience! The staff was friendly and knowledgeable, and the service was quick. I would definitely recommend this place to others!
-              </p>
-              <p className="review-details">2 hours ago - Foox Pvt Ltd</p>
-            </div>
-            <div className="review">
-              <p>
-                <strong>Aditya Khan:</strong> Absolutely phenomenal experience from start to finish! The service was impeccable—attentive yet unobtrusive. The ambiance was charming and sophisticated, perfect for a memorable evening out. The food was beyond delicious; each dish was a masterpiece of flavors and presentation. The desserts were a highlight, indulgent and creative. I cannot recommend this place enough—it's a must-visit for anyone who appreciates exceptional dining!
-              </p>
-              <p className="review-details">2 hours ago - QJD Professionals</p>
-            </div>
-            <button className="see-all">See All</button>
-          </div>
+        <div className="home-reviews-group">
+          <RecentReviews/>
           <div className="review-breakdown">
             <h2>Average Review Breakdown</h2>
             <div className="tabs">
