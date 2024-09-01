@@ -74,7 +74,7 @@ const ScanReviews = () => {
   };
 
   return (
-    <div className='app'>
+    <div className='reviews-app'>
       <div className="reviews-container">
         <div className="reviews-header">
           <h2>Reviews for {businessName}</h2>

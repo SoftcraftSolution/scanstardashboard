@@ -2,9 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 .dashboard {
-  padding: 20px;
+
   font-family: 'Poppins', sans-serif;
   width:100%;
+  margin-top: 50px;
   /* border: 1px solid red; */
 }
 
@@ -53,25 +54,25 @@
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 20px;
+  gap: 20px;
+  padding: 0px 20px;
 }
 
 .stat-item {
   background-color: #f8f9fa;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 16px;
   text-align: center;
-  width: 200px;
+  width: 25%;
   /* border: 1px solid red; */
   display: flex;
   align-items: start;
   flex-direction: column;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 
-.stat-item img {
-  width: 20px;
-  /* vertical-align: middle; */
-}
+
 
 .stat-change {
   font-size: 14px;
@@ -120,7 +121,7 @@
   color: #777;
 }
 
-.review-details img {
+.review-details  {
   width: 16px;
   vertical-align: middle;
   margin-right: 5px;
@@ -217,8 +218,60 @@
   font-family: 'Poppins';
   color: gray;
 }
+#datteePickeer{
+  padding: 20px;
+}
 #titleId{
   font-size: 28px;
   font-weight: 600;
 
+}
+.home-top-row{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* border: 1px solid rgb(43, 0, 255); */
+}
+.home-insight-icon{
+  height:50px;
+  width: 50px;
+  /* border: 1px solid rgb(0, 0, 0); */
+  border-radius: 10px;
+  display: flex; /* Enables Flexbox */
+  justify-content: center; /* Centers child horizontally */
+  align-items: center;
+  /* align-content: center; */
+}
+.home-insight-first{
+display: flex;
+flex-direction: column;
+/* border: 1px solid rgb(183, 0, 255); */
+justify-content: start;
+align-items: start;
+
+}
+.home-img{
+  /* border: 1px solid black; */
+  height:28px;
+  width: 28px;
+  background-size: contain;
+  background-position: center;
+ 
+}
+.img-0{
+  background-image: url("../assets/cal.png");
+}
+.img-1{
+  background-image: url("../assets/positive.png");
+}
+.img-2{
+  background-image: url("../assets/nagative.png");
+}
+.img-3{
+  background-image: url("../assets/Star.png");
+}
+.home-charts{
+display: flex;
+gap: 20px;
+padding: 20px;
 }

@@ -1,12 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'react-datepicker/dist/react-datepicker.css';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
+// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
 import './home.css';
+import ReviewsBarChart from './module/graph';
+import AnalyticsDonutChart from './module/circularAnalysys';
+
 
 
 // Define COLORS for PieChart
 const COLORS = ['#004AAC', '#ECC522'];
+const StatItem = ({ title, value, growthPercentage ,backColor,index}) => {
+  return (
+    <div className="stat-item">
+      <div className='home-top-row'>
+      <div className='home-insight-first'>
+       <p style={{ margin: "0px 0px" }}>{title}</p>
+       <div id="titleId">{value}</div>
+      </div>
+      <div className='home-insight-icon' style={{backgroundColor:backColor}}><div className={`home-img ${index==0?"img-0":index==1?"img-1":index==2?"img-2":"img-3"}`}  /></div>
+      </div>
+      <p
+        style={{ margin: "0px 0px" }}
+        className={`stat-change ${growthPercentage > 0 ? 'positive' : 'negative'}`}
+      >
+        {growthPercentage}% from yesterday
+      </p>
+    </div>
+  );
+};
 
 const Home = () => {
   // State variables
@@ -66,89 +88,45 @@ const Home = () => {
 
     fetchData();
   }, [selectedDate]);
+
+
   const handleDateChange = (event) => {
     const date = new Date(event.target.value);
     setSelectedDate(date);
     console.log(date);
   };
 
+  const getStringDate = (date) => {
+    // Ensure date is a Date object
+    if (!(date instanceof Date)) {
+      throw new Error("Input must be a Date object");
+    }
+  
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-indexed
+    const day = date.getDate().toString().padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+  };
+ 
+ 
   return (
     <div className="app" style={{ maxWidth: "100%", padding: "0px" }}>
       
       <div className="dashboard">
         <div id="datteePickeer">
-          <input type="date" id="birthday" name="birthday" className="date-picker-input" onChange={handleDateChange} />
+          <input type="date" id="birthday" name="birthday" className="date-picker-input" value={getStringDate(selectedDate)} onChange={handleDateChange} />
         </div>
         
         <div className="stats">
-          <div className="stat-item">
-            <p style={{margin:"0px 0px"}}>Total Reviews</p>
-            <div id="titleId">{totalReviews}</div>
-            <p style={{margin:"0px 0px"}}  className={`stat-change ${totalReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
-              {totalReviewGrowthPercentage}% from yesterday
-            </p>
-          </div>
-          <div className="stat-item">
-            <p style={{margin:"0px 0px"}}>Positive Reviews</p>
-            <div id="titleId">{positiveReviewCount}</div>
-            <p style={{margin:"0px 0px"}} className={`stat-change ${positiveReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
-              {positiveReviewGrowthPercentage}% from yesterday
-            </p>
-          </div>
-          <div className="stat-item">
-            <p style={{margin:"0px 0px"}}>Negative Reviews</p>
-            <div id="titleId">{negativeReviewCount}</div>
-            <p style={{margin:"0px 0px"}} className={`stat-change ${negativeReviewGrowthPercentage > 0 ? 'positive' : 'negative'}`}>
-              {negativeReviewGrowthPercentage}% from yesterday
-            </p>
-          </div>
-          <div className="stat-item">
-            <p style={{margin:"0px 0px"}}>Average Rating Today</p>
-            <div id="titleId">{averageRatingToday}</div>
-            <p style={{margin:"0px 0px"}}  className="stat-change">Overall rating: {averageRatingOverall}</p>
-          </div>
+          <StatItem index={0} backColor={'#004AAC'} title={"Total Reviews"} value={totalReviews} growthPercentage={totalReviewGrowthPercentage}/>
+          <StatItem index={1}   backColor={'#004AAC'} title={"Positive Reviews"} value={positiveReviewCount} growthPercentage={positiveReviewGrowthPercentage}/>
+          <StatItem index={2}   backColor={'#ECC522'} title={"Negative Reviews"} value={negativeReviewCount} growthPercentage={negativeReviewGrowthPercentage}/>
+          <StatItem index={3}  backColor={'#004AAC'} title={"Average Rating Today"} value={averageRatingToday} growthPercentage={averageRatingOverall}/>
         </div>
-
-
-        <div className="charts">
-          <div className="chart-container">
-            <h2>Reviews</h2>
-            <BarChart
-              width={800}
-              height={300}
-              data={reviewData}
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="Positive" fill="#004AAC" />
-              <Bar dataKey="Negative" fill="#ECC522" />
-            </BarChart>
-          </div>
-          <div className="chart-container">
-            <h2>Analytics</h2>
-            <PieChart width={400} height={300}>
-              <Pie
-                data={analyticsData}
-                cx={200}
-                cy={150}
-                innerRadius={45}
-                outerRadius={80}
-                fill="#8884d8"
-                paddingAngle={5}
-                dataKey="value"
-              >
-                {analyticsData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-            <p>{`${analyticsData[0]?.value || 0} Positive Reviews out of ${analyticsData.reduce((acc, curr) => acc + (curr.value || 0), 0)} Total Reviews`}</p>
-          </div>
+        <div className='home-charts'>
+        <ReviewsBarChart/>
+        <AnalyticsDonutChart/>
         </div>
         <div className="reviews-group">
           <div className="recent-reviews">

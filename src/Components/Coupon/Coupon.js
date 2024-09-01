@@ -33,13 +33,9 @@ const Coupon = () => {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-          
-=======
-      <Topbar />
->>>>>>> 67357780c22d82089b584ffc2da65f02baf2aedc
+
    
-      <div className="dashboard">
+      <div className="coupon-dashboard">
         <h2>Total Coupons</h2>
         <div className="coupon-summary">
           <div className="summary-box">

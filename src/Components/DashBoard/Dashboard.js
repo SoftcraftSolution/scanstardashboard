@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Home from './home/home.js';
-import ScanStarReviews from './scanstar/review.js';
-import Coupon from './Coupon/Coupon.js';
-import TopBar from './Topbar/topbar.js'; // Your CSS file for styling
+import Home from '../home/home.js';
+import ScanStarReviews from '../scanstar/review.js';
+import Coupon from '../Coupon/Coupon.js';
+import TopBar from '../Topbar/topbar.js';
+import "./Dashboard.css" // Your CSS file for styling
 
 
 const Dashboard = () => {
@@ -26,7 +27,7 @@ const Dashboard = () => {
     };
   
     return (
-      <div >
+      <div className='-dashboard'>
         <TopBar activeIndex={activeIndex} onTabClick={handleTabClick} />
         <div className="content">
           {renderContent()}
