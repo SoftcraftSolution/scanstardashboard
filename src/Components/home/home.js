@@ -6,6 +6,7 @@ import './home.css';
 import ReviewsBarChart from './module/graph';
 import AnalyticsDonutChart from './module/circularAnalysys';
 import RecentReviews from './module/recnet-reeviews/recentReviews';
+import ReviewBreakdown from './module/reviewBreakdown';
 
 
 
@@ -131,25 +132,7 @@ const Home = () => {
         </div>
         <div className="home-reviews-group">
           <RecentReviews/>
-          <div className="review-breakdown">
-            <h2>Average Review Breakdown</h2>
-            <div className="tabs">
-              <button className="tab active">Overview</button>
-              <button className="tab">Yearly</button>
-              <button className="tab">Monthly</button>
-            </div>
-            <div className="breakdown">
-              <p className="rating">{averageRatingOverall}</p>
-              <p className="reviews-count">{overallTotalCountAllTime} Reviews</p>
-              <div className="breakdown-chart">
-                <div className="breakdown-bar" style={{ width: '80%' }}></div>
-                <div className="breakdown-bar" style={{ width: '60%' }}></div>
-                <div className="breakdown-bar" style={{ width: '70%' }}></div>
-                <div className="breakdown-bar" style={{ width: '90%' }}></div>
-                <div className="breakdown-bar" style={{ width: '85%' }}></div>
-              </div>
-            </div>
-          </div>
+          <ReviewBreakdown/>
         </div>
       </div>
     </div>

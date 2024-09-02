@@ -15,8 +15,8 @@ const data = [
 
 const ReviewsBarChart = () => {
   return (
-    <div style={{  width: '100%', height: 400, padding: '20px', backgroundColor: 'white', borderRadius: '16px', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
-      <div style={{fontSize:"20px", fontWeight:"600"}}>Reviews</div>
+    <div style={{ width: '100%', height: 400, padding: '20px', backgroundColor: 'white', borderRadius: '16px', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
+      <div style={{ fontSize: "20px", fontWeight: "600" }}>Reviews</div>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
@@ -29,8 +29,8 @@ const ReviewsBarChart = () => {
           <YAxis />
           <Tooltip />
           <Legend verticalAlign='top' />
-          <Bar dataKey="Positive" fill="#0047AB" />
-          <Bar dataKey="Negative" fill="#FDBB30" />
+          <Bar dataKey="Positive" fill="#0047AB" radius={[10, 10, 0, 0]} />
+          <Bar dataKey="Negative" fill="#FDBB30" radius={[10, 10, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>

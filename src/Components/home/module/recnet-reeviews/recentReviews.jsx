@@ -7,9 +7,9 @@ const RecentReviews = () => {
       avatarUrl: 'https://via.placeholder.com/50', // Placeholder for user avatar
       name: 'Admeya Khan',
       timeAgo: '2 hours ago',
-      rating: 5,
+      rating: 4,
       reviewText:
-        'Great experience! The staff was friendly and knowledgeable, and the service was quick. I would definitely recommend this place to others.',
+        'Great experience! The staff was friendly and knowledgeable, and the service was quick. I would definitely recommend this place to others.Great experience! The staff was friendly and knowledgeable, and the service was quick. I would definitely recommend this place to others.',
     },
     {
       avatarUrl: 'https://via.placeholder.com/50', // Placeholder for user avatar
@@ -22,7 +22,7 @@ const RecentReviews = () => {
   ];
 
   const containerStyle = {
-    maxWidth: '500px',
+    width:'100%',
     backgroundColor: '#fff',
     borderRadius: '10px',
     padding: '20px',
@@ -38,11 +38,11 @@ const RecentReviews = () => {
   };
 
   const buttonStyle = {
-    backgroundColor: '#1e73be',
+    backgroundColor: '#004AAC',
     color: '#fff',
     border: 'none',
     padding: '8px 16px',
-    borderRadius: '5px',
+    borderRadius: '10px',
     cursor: 'pointer',
     fontWeight: 'bold',
   };
@@ -50,8 +50,8 @@ const RecentReviews = () => {
   return (
     <div style={containerStyle}>
       <div style={headerStyle}>
-        <h2>Recent Reviews</h2>
-        <button style={buttonStyle}>SEE ALL</button>
+        <h2 style={{margin:"0px"}}>Recent Reviews</h2>
+        <button style={buttonStyle}>See all</button>
       </div>
       {reviews.map((review, index) => (
         <Review key={index} {...review} />

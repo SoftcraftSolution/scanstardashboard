@@ -25,7 +25,7 @@ const AnalyticsDonutChart = () => {
             innerRadius={70}
             outerRadius={100}
             fill="#8884d8"
-            paddingAngle={5}
+            
             dataKey="value"
             
           >
