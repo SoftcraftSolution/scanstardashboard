@@ -2,28 +2,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 
-
+.App{
+  width:100%
+}
 .coupon-dashboard {
-  padding: 20px;
+  padding: 26px;
   font-family: 'Poppins', sans-serif;
-  background-color: #f8f9fa;
-  width: 100%;
+  background-color: rgba(232, 232, 246, 0.58);
   margin-top: 50px;
 }
 
-img {
-  height: 50px;
-  width: 50px;
+.coupone-img {
+  height: 60px;
+  width: 60px;
+}
+.coupone-card-title{
+  font-size: 16px;
+  color: #696969;
+}
+.coupon-table-th{
+  border: 1px solid red;
+  background-color: #004AAC;
 }
 
-h2 {
-  margin-bottom: 20px;
-}
 
 .coupon-summary {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 20px;
+  padding: 0px 0px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -34,8 +40,8 @@ h2 {
   border-radius: 10px;
   padding: 15px;
   text-align: left;
-  width: 200px;
-  height: 85px;
+  width: 23%;
+  height: 90px;
   margin-right: 25px;
   font-family: 'Poppins', sans-serif;
 }
@@ -60,21 +66,21 @@ h2 {
 .actions {
   display: flex;
   flex-direction: column; 
+  align-items: center;
+  justify-content: center;
   gap: 10px; /* Space between the buttons */
-  position: absolute; /* Allows precise placement */
-  right: 0; /* Positions the buttons to the far right */
-  top: 150PX; 
+  padding: 0px 30px;
   font-family: 'Poppins', sans-serif;
 }
 
 .verify-btn, .generate-btn {
   color: white;
   border: none;
+  width: 200px;
+  height: 46px;
   border-radius: 16px;
   padding: 10px 33px;
   cursor: pointer;
-  margin-top: 0; 
-  margin-right: 80px;
   font-family: 'Poppins', sans-serif;
   gap: 3px;
 }
@@ -88,10 +94,11 @@ h2 {
 }
 
 .coupon-table {
+
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-  margin-left: 0; /* Aligns the table to the left side */
+  padding: 24px 0px;
+  /* Aligns the table to the left side */
 }
 
 .coupon-table th, .coupon-table td {
@@ -251,4 +258,6 @@ h2 {
   background-color: #004AAC;
   color: white;
 }
+
+
 
