@@ -43,10 +43,10 @@ const AdminList = () => {
       <table>
         <thead>
           <tr>
-            <th>Admin Name</th>
-            <th>Mobile Number</th>
-            <th>Email ID</th>
-            <th>Date of Joining</th>
+            <th className='adth'>Admin Name</th>
+            <th className='adth'>Mobile Number</th>
+            <th className='adth'>Email ID</th>
+            <th className='adth'>Date of Joining</th>
           </tr>
         </thead>
         <tbody>

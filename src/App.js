@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Dashboard from './Components/Dashboard';
+import Dashboard from './Components/DashBoard/Dashboard.js';
 import AdminList from './adminlist/adminlist';
 import './Components/styles.css';
 import BusinessList from './Components/Buisnesslist/Buisnesslist';
@@ -9,7 +9,7 @@ import LoginPage from './Components/Login/login';
 import ForgotPassword from './Components/Forgot/forgot.js';
 import ScanReviews from './Components/scanstar/review.js';
 import Coupon from './Components/Coupon/Coupon';
-import Home from './Components/home.js';
+import Home from './Components/home/home.js';
 
 function App() {
   return (

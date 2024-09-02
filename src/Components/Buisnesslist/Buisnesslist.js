@@ -44,13 +44,13 @@ const BusinessList = () => {
         <table>
           <thead>
             <tr>
-              <th>Business Name</th>
-              <th>Average Rating</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Phone No</th>
-              <th>Email ID</th>
-              <th>Placeid</th>
+              <th className='bth'>Business Name</th>
+              <th className='bth'>Average Rating</th>
+              <th className='bth'>First Name</th>
+              <th className='bth'>Last Name</th>
+              <th className='bth'>Phone No</th>
+              <th className='bth'>Email ID</th>
+              <th className='bth'>Placeid</th>
             </tr>
           </thead>
           <tbody>

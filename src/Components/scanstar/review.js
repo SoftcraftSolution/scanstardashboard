@@ -1,146 +1,132 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './review.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-library.add(fasStar, farStar);
+// Sample data for reviews
+const reviews = [
+    {
+        image: 'user1.jpg',
+        name: 'Admeya Khan',
+        rating: 5,
+        comment: 'Great experience! The staff was friendly and knowledgeable, and the service was quick. I would definitely recommend this place to others.',
+        time: '04:27 pm',
+        date: '01-04-2024',
+    },
+    {
+        image: 'google-icon.png',
+        name: 'Rahul Jaiswar',
+        rating: 4,
+        comment: 'Absolutely phenomenal experience from start to finish! The service was impeccable—attentive yet unobtrusive. The ambiance was charming.',
+        time: '11:56 pm',
+        date: '05-02-2023',
+    },
+    {
+        image: 'user2.jpg',
+        name: 'Shantanu Shinde',
+        rating: 5,
+        comment: 'Great experience! The staff was friendly and knowledgeable, and the service was quick. I would definitely recommend this place to others.',
+        time: '00:45 am',
+        date: '12-04-2023',
+    },
+    {
+        image: 'user3.jpg',
+        name: 'Gaurav Raju',
+        rating: 4,
+        comment: 'Absolutely phenomenal experience from start to finish! The service was impeccable—attentive yet unobtrusive. The ambiance was charming.',
+        time: '02:34 am',
+        date: '24-05-2024',
+    },
+    {
+        image: 'user4.jpg',
+        name: 'Admeya Qureshi',
+        rating: 5,
+        comment: 'Really Amazing, Had a great time.',
+        time: '06:21 am',
+        date: '27-06-2024',
+    },
+    {
+        image: 'user5.jpg',
+        name: 'Rahul Yadav',
+        rating: 5,
+        comment: 'Amazing people enjoyed my time there would love to visit again.',
+        time: '07:33 am',
+        date: '05-07-2024',
+    },
+    {
+        image: 'user6.jpg',
+        name: 'Shantanu Wadekar',
+        rating: 4,
+        comment: '-',
+        time: '10:55 am',
+        date: '20-08-2024',
+    },
+    {
+        image: 'google-icon.png',
+        name: 'Gaurav Morajkar',
+        rating: 1,
+        comment: 'Absolutely phenomenal experience from start to finish! The service was impeccable—attentive yet unobtrusive. The ambiance was charming.',
+        time: '01:23 pm',
+        date: '09-09-2024',
+    },
+];
 
-const ScanReviews = () => {
-  const [reviews, setReviews] = useState([]);
-  const [businessName, setBusinessName] = useState(sessionStorage.getItem('businessName') || '');
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await axios.get(`https://ambulance-booking-backend.vercel.app/user/get-local-review?businessName=${businessName}`);
-        console.log(response.data);
-        if (response.data.qrCodeId) {
-          const businessReviews = response.data.reviews.map(review => {
-            return {
-              name: review.name,
-              image: review.image,
-              rating: review.rating,
-              comment: review.comment,
-              createdAt: review.createdAt,
-              businessName: response.data.businessName
-            };
-          });
-          setReviews(businessReviews);
-        } else {
-          console.error('Expected valid response with reviews, but received:', response.data);
-        }
-      } catch (error) {
-        console.error('Error fetching reviews:', error);
-      }
-    };
-
-    fetchReviews();
-  }, [businessName]);
-
-  const handleFilterByDate = () => {
-    // Implement your filtering logic here if needed
-    console.log('Filtering by date');
-  };
-
-  const handleSortByDate = () => {
-    // Implement your sorting logic here if needed
-    console.log('Sorting by date');
-  };
-
-  // Get current date in "DD-MM-YYYY" format
-  const currentDate = new Date().toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  });
-
-  // Convert ISO date string to readable date and time
-  const formatDateTime = (isoString) => {
-    const date = new Date(isoString);
-    return {
-      date: date.toLocaleDateString('en-GB', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-      }),
-      time: date.toLocaleTimeString('en-GB', {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
-    };
-  };
-
-  return (
-    <div className='app'>
-      <div className="reviews-container">
-        <div className="reviews-header">
-          <h2>Reviews for {businessName}</h2>
-          <div className="review-buttons">
-            <button className="filter-button" onClick={handleFilterByDate}>
-              <FontAwesomeIcon icon="calendar-alt" /> Filter by Date
-            </button>
-            <button className="sort-button" onClick={handleSortByDate}>
-              <FontAwesomeIcon icon="sort" /> Sort
-            </button>
-            <div className="current-date">
-              <FontAwesomeIcon icon="calendar-alt" /> {currentDate}
+const Reviews = () => {
+    return (
+        <div className="reviews-page">
+            <header>
+                <img src="logo.png" alt="Logo" className="logo" />
+  
+                <div className="user-profile">
+                    <img src="user-profile.png" alt="User" />
+                </div>
+            </header>
+            <div className="reviews-container">
+                <div className="filter-sort">
+                    <input type="date" className="date-picker" />
+                    <button className="filter-sort-button">Filter & Sort</button>
+                </div>
+                <div className="reviews-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th className='thname'>Full Name</th>
+                            <th>Rating</th>
+                            <th className='thcomment'>Comment</th>
+                            <th className='thtime'>Time</th>
+                            <th className='thdate'>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {reviews.map((review, index) => (
+                            <tr key={index}>
+                                <td><img src={review.image} alt={review.name} className="user-image" /></td>
+                                <td>{review.name}</td>
+                                <td>
+                                    <div className="stars">
+                                        {'★'.repeat(review.rating)}
+                                        {'☆'.repeat(5 - review.rating)}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className="comment">
+                                        {review.comment.length > 100 ? (
+                                            <>
+                                                {review.comment.substring(0, 100)}...
+                                                <span className="more"> more</span>
+                                            </>
+                                        ) : (
+                                            review.comment
+                                        )}
+                                    </div>
+                                </td>
+                                <td>{review.time}</td>
+                                <td>{review.date}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </div>
             </div>
-          </div>
         </div>
-        <table className="reviews-table">
-          <thead>
-            <tr>
-              <th>Business Name</th>
-              <th>Image</th>
-              <th>Full Name</th>
-              <th>Rating</th>
-              <th>Comment</th>
-              <th>Time</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Array.isArray(reviews) && reviews.length > 0 ? (
-              reviews.map((review, index) => {
-                const { date, time } = formatDateTime(review.createdAt);
-                return (
-                  <tr key={index}>
-                    <td>{review.businessName}</td>
-                    <td>
-                      {review.image ? (
-                        <img src={review.image} alt={review.name} className="review-image" />
-                      ) : (
-                        <span>No image</span>
-                      )}
-                    </td>
-                    <td>{review.name}</td>
-                    <td>
-                      {[...Array(review.rating)].map((_, i) => (
-                        <FontAwesomeIcon key={i} icon={['fas', 'star']} className="golden-star" />
-                      ))}
-                      {[...Array(5 - review.rating)].map((_, i) => (
-                        <FontAwesomeIcon key={i} icon={['far', 'star']} className="golden-star"/>
-                      ))}
-                    </td>
-                    <td>{review.comment || 'No comment'}</td>
-                    <td>{time}</td>
-                    <td>{date}</td>
-                  </tr>
-                );
-              })
-            ) : (
-              <tr>
-                <td colSpan="7">No reviews available</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
+    );
 };
 
-export default ScanReviews;
+export default Reviews;

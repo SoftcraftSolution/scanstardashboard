@@ -12,13 +12,13 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  th, td {
+  .adth, td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
   
-  th {
+  .adth {
     width: 1385px;
     height: 64px;
     top: 112px;

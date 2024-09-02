@@ -90,7 +90,7 @@ const Reviews = () => {
   };
 
   return (
-    <div className='app'>
+    <div className='review-app'>
       <TopBar />
       <div className="reviews-container">
         <div className="reviews-header">
