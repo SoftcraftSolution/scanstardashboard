@@ -8,7 +8,7 @@
 .coupon-dashboard {
   padding: 26px;
   font-family: 'Poppins', sans-serif;
-  background-color: rgba(232, 232, 246, 0.58);
+  background-color: rgba(236, 236, 247, 0.58);
   margin-top: 50px;
 }
 
@@ -36,8 +36,9 @@
 .summary-box {
   display: flex;
   align-items: center;
-  background-color: #E3ECFB;
+  background-color: #dbe9ff;
   border-radius: 10px;
+  box-shadow: 0px 4px 12px rgb(199, 198, 198);
   padding: 15px;
   text-align: left;
   width: 23%;

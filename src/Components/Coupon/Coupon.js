@@ -70,9 +70,9 @@ const Coupon = () => {
         {/* Coupons Table */}
         <div style={{ width: '100%', marginTop: '20px' }}>
           {/* Header */}
-          <div style={{ display: 'flex', backgroundColor: '#E2E8F0', color: '#000', padding: '10px 0', fontWeight: 'bold' }}>
+          <div style={{ display: 'flex', backgroundColor: '#E3ECFB', color: '#000',borderRadius:"10px", padding: '20px 10px', fontWeight: 500 }}>
             <div style={{ flex: 1, padding: '0 10px' }}>Coupon Code</div>
-            <div style={{ flex: 1, padding: '0 10px' }}>Offer</div>
+            <div style={{ flex: 2, padding: '0 10px' }}>Offer</div>
             <div style={{ flex: 1, padding: '0 10px' }}>Generated Date</div>
             <div style={{ flex: 1, padding: '0 10px' }}>Issued Date</div>
             <div style={{ flex: 1, padding: '0 10px' }}>Expiry Date</div>
@@ -83,12 +83,12 @@ const Coupon = () => {
           {/* Body */}
           <div>
             {coupons.map((coupon, index) => (
-              <div key={index} style={{ display: 'flex', padding: '10px 0', borderBottom: '1px solid #333' }}>
-                <div style={{ flex: 1, padding: '0 10px' }}>{coupon.code}</div>
-                <div style={{ flex: 1, padding: '0 10px' }}>{coupon.offer}</div>
-                <div style={{ flex: 1, padding: '0 10px' }}>{coupon.generatedDate}</div>
-                <div style={{ flex: 1, padding: '0 10px' }}>{coupon.issuedDate}</div>
-                <div style={{ flex: 1, padding: '0 10px' }}>{coupon.expiryDate}</div>
+              <div key={index} style={{ display: 'flex', padding: '20px 0', }}>
+                <div style={{ flex: 1, padding: '0 10px', color:"#696969"}}>{coupon.code}</div>
+                <div style={{ flex: 2, padding: '0 10px' ,color:"#696969" }}>{coupon.offer}</div>
+                <div style={{ flex: 1, padding: '0 10px' ,color:"#696969"}}>{coupon.generatedDate}</div>
+                <div style={{ flex: 1, padding: '0 10px' ,color:"#696969"}}>{coupon.issuedDate}</div>
+                <div style={{ flex: 1, padding: '0 10px' ,color:"#696969"}}>{coupon.expiryDate}</div>
                 <div style={{ flex: 1, padding: '0 10px', color: coupon.status === 'Expired' ? 'red' : coupon.status === 'Claimed' ? 'green' : 'black' }}>{coupon.status}</div>
                 <div style={{ flex: 1, padding: '0 10px', cursor: 'pointer', color: '#ff4d4d' }}>
                   <button style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
